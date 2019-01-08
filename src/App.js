@@ -123,7 +123,7 @@ export default class App extends React.Component {
           <h1 className="App-title">{this.state.correctAnswer} (Correct answer displayed for testing purposes) </h1>
           <p>{this.state.statusMessage}</p>
           <p>{this.state.name}</p>
-          <ul className="number-guess-list">{this.state.guesses.map(guess => <li>{guess}</li>)}</ul>
+          <ul className="number-guess-list">{this.state.guesses.map(guess => <li className="number-guess-item">{guess}&nbsp;</li>)}</ul>
         </header>
         
       </div>
