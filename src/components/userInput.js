@@ -2,6 +2,10 @@ import React from 'react'
 
 export default class UserInput extends React.Component {
     
+    constructor(props) {
+        super(props)
+    }
+
     onSubmit(e) {
         e.preventDefault()
         this.props.checkGuess()

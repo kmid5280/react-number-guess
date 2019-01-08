@@ -4,6 +4,7 @@ import './App.css';
 import UserInput from './components/userInput.js'
 
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,8 @@ export default class App extends React.Component {
       guess: '',
       statusMessage: '',
       submitButton: 'Submit',
-      wonGame: false
+      wonGame: false,
+      name: ''
     }
   }
 
@@ -34,6 +36,12 @@ export default class App extends React.Component {
         statusMessage: ''
     })
     }
+  }
+
+  addName(name) {
+    this.setState({
+      name: name,
+    })
   }
 
   checkGuess() {
@@ -93,7 +101,8 @@ export default class App extends React.Component {
       guess: '',
       statusMessage: '',
       submitButton: 'Submit',
-      wonGame: false
+      wonGame: false,
+      name: ''
     })
   }
 
@@ -110,10 +119,11 @@ export default class App extends React.Component {
     return (
       <div className="correct-answer">
         <header className="App-header">
-          <UserInput checkGuess={() => this.checkGuess()} submitButton={this.state.submitButton} input={guess => this.onSubmit(guess)}/>
-          <h1 className="App-title">{this.state.correctAnswer}</h1>
+          <UserInput checkGuess={() => this.checkGuess()} submitButton={this.state.submitButton} input={guess => this.onSubmit(guess)} />
+          <h1 className="App-title">{this.state.correctAnswer} (Correct answer displayed for testing purposes) </h1>
           <p>{this.state.statusMessage}</p>
-          <p>{this.state.guesses.map(guess => <h5>{guess} </h5>)}</p>
+          <p>{this.state.name}</p>
+          <ul className="number-guess-list">{this.state.guesses.map(guess => <li>{guess}</li>)}</ul>
         </header>
         
       </div>
